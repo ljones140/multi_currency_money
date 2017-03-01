@@ -10,7 +10,6 @@
  */
 class Franc extends Money {
 
-
     Franc(int amount) {
         this.amount = amount;
     }
