@@ -8,11 +8,15 @@
  *
  * @author ljones
  */
-abstract class Money {
+class Money {
 
-    abstract Money times(int multiplier);
     protected int amount;
     protected String currency;
+    
+    Money times(int multiplier) {
+        return new Money(amount * multiplier, currency);
+    };
+  
 
     Money(int amount, String currency) {
         this.amount = amount;
@@ -34,7 +38,7 @@ abstract class Money {
     public boolean equals(Object object) {
         Money money = (Money) object;
         return amount == money.amount
-                && getClass().equals(money.getClass());
+                && currency.equals(money.currency());
     }
 
 }
