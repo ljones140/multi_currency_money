@@ -21,16 +21,16 @@ class Money {
         return new Money(amount, "CHF");
     }
 
-    Money(int amount, String currency) {
+    public Money(int amount, String currency) {
         this.amount = amount;
         this.currency = currency;
     }
 
-    Money times(int multiplier) {
+    public Money times(int multiplier) {
         return new Money(amount * multiplier, currency);
     }
 
-    String currency() {
+    public String currency() {
         return currency;
     }
 
