@@ -8,7 +8,7 @@
  *
  * @author ljones
  */
-class Money {
+class Money implements Expression {
 
     protected int amount;
     protected String currency;
@@ -25,6 +25,10 @@ class Money {
         this.amount = amount;
         this.currency = currency;
     }
+    
+    public Expression plus(Money addend) {
+        return new Sum(this, addend);
+    }
 
     public Money times(int multiplier) {
         return new Money(amount * multiplier, currency);
@@ -39,5 +43,8 @@ class Money {
         return amount == money.amount
                 && currency.equals(money.currency());
     }
-
+    
+    public Money reduce(String to) {
+        return this;
+    }
 }
